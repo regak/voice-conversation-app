@@ -68,6 +68,32 @@ export const FUNCTION_DECLARATIONS = [
     },
   },
   {
+    name: "control_video",
+    description:
+      "Control the currently playing YouTube video. Use for pause, resume/play, " +
+      "stop, restart, mute, unmute, volume changes, skipping forward/back, or " +
+      "closing the player. Only works when a video is already playing.",
+    parameters: {
+      type: "OBJECT",
+      properties: {
+        action: {
+          type: "STRING",
+          description:
+            "One of: 'play', 'pause', 'stop', 'restart', 'mute', 'unmute', " +
+            "'volume_up', 'volume_down', 'set_volume', 'skip_forward', " +
+            "'skip_back', 'close'.",
+        },
+        value: {
+          type: "NUMBER",
+          description:
+            "Optional. For 'set_volume': 0-100. For 'skip_forward'/'skip_back': " +
+            "seconds to jump (default 10). Ignored for other actions.",
+        },
+      },
+      required: ["action"],
+    },
+  },
+  {
     name: "open_url",
     description:
       "Open a website in a new browser tab. Use when the user asks to open, go to, " +
